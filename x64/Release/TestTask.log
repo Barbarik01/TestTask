@@ -1,1 +1,46 @@
-﻿  TestTask.vcxproj -> D:\Git\TestTask\x64\Release\TestTask.exe
+﻿  Ball.cpp
+D:\Git\TestTask\Ball.cpp(64,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Git\TestTask\Ball.cpp(67,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  BaseTablet.cpp
+  BotTablet.cpp
+  Game.cpp
+D:\Git\TestTask\Game.cpp(12,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Git\TestTask\Game.cpp(13,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Git\TestTask\Game.cpp(13,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Git\TestTask\Game.cpp(15,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Git\TestTask\Game.cpp(16,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Git\TestTask\Game.cpp(17,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Git\TestTask\Game.cpp(17,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  HUD.cpp
+D:\Git\TestTask\HUD.cpp(11,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  PlayerTablet.cpp
+  main.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 360 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  TestTask.vcxproj -> D:\Git\TestTask\x64\Release\TestTask.exe

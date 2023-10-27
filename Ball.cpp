@@ -3,53 +3,53 @@
 
 Ball::Ball(const sf::Vector2f& position)
 {
-    ball.setRadius(ballRadius);
-    ball.setPosition(position);
-    ball.setFillColor(sf::Color::White);
+    mBall.setRadius(ballRadius);
+    mBall.setPosition(position);
+    mBall.setFillColor(sf::Color::White);
 
     SetRandomDirection();
 
-    borderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3");
-    tabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3");
-    borderSound.setBuffer(borderSoundBuffer);
-    tabletSound.setBuffer(tabletSoundBuffer);
+    mBorderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3");
+    mTabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3");
+    mBorderSound.setBuffer(mBorderSoundBuffer);
+    mTabletSound.setBuffer(mTabletSoundBuffer);
 }
 
 void Ball::SetPosition(const sf::Vector2f& position)
 {
-    ball.setPosition(position);
+    mBall.setPosition(position);
 }
 
 bool Ball::CheckCollisionWithTables(const BaseTablet* pBaseTablet) const
 {
-    return ball.getGlobalBounds().intersects(pBaseTablet->getGlobalBouds());
+    return mBall.getGlobalBounds().intersects(pBaseTablet->GetGlobalBouds());
 }
 
 void Ball::CollisionWithTables()
 {
-    direction.x = -direction.x;
-    tabletSound.play();
+    mDirection.x = -mDirection.x;
+    mTabletSound.play();
 }
 
 void Ball::Update(float dt)
 {
-    ball.move(direction.x * ballSpeed * dt, direction.y * ballSpeed * dt);
+    mBall.move(mDirection.x * mBallSpeed * dt, mDirection.y * mBallSpeed * dt);
 
-    if (ball.getPosition().y < 0 || ball.getPosition().y + ballRadius * 2 > Window::ScreenHeight)
+    if (mBall.getPosition().y < 0 || mBall.getPosition().y + ballRadius * 2 > Window::ScreenHeight)
     {
-        direction.y = -direction.y;
-        borderSound.play();
+        mDirection.y = -mDirection.y;
+        mBorderSound.play();
     }
 }
 
 void Ball::Render(Window& window)
 {
-    window.pWnd->draw(ball);
+    window.pWnd->draw(mBall);
 }
 
 const sf::Vector2f& Ball::GetPosition() const
 {
-    return ball.getPosition();
+    return mBall.getPosition();
 }
 
 void Ball::SetRandomDirection()
@@ -61,15 +61,15 @@ void Ball::SetRandomDirection()
     
     do
     {
-        direction.x = disInt(gen);
-    } while (direction.x == 0);
+        mDirection.x = disInt(gen);
+    } while (mDirection.x == 0);
     
-    direction.y = dis(gen);
+    mDirection.y = dis(gen);
 }
 
 void Ball::SetNewPosition()
 {
-    ball.setPosition(Window::ScreenWidth / 2, Window::ScreenHeight / 2);
+    mBall.setPosition(Window::ScreenWidth / 2, Window::ScreenHeight / 2);
 
     SetRandomDirection();
 }

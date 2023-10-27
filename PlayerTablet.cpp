@@ -11,12 +11,12 @@ void PlayerTablet::Update(float dt)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)  
         && mTablet.getPosition().y > 0)
     {
-        mTablet.move(0, -tabletSpeed * dt);
+        mTablet.move(0, -mTabletSpeed * dt);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) 
         && mTablet.getPosition().y + tabletHeight < Window::ScreenHeight)
     {
-        mTablet.move(0, tabletSpeed * dt);
+        mTablet.move(0, mTabletSpeed * dt);
     }
 }

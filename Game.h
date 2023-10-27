@@ -26,6 +26,6 @@ private:
     Ball ball;
     int mLeftScore;
     int mRightScore;
-    sf::SoundBuffer goalSoundBuffer;
-    sf::Sound goalSound;
+    sf::SoundBuffer mGoalSoundBuffer;
+    sf::Sound mGoalSound;
 };

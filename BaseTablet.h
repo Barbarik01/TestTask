@@ -8,7 +8,7 @@ public:
     virtual bool CheckCollision() const;
     virtual void Update(float dt) = 0;
     virtual void Render(Window& window);
-    virtual sf::FloatRect getGlobalBouds() const;
+    virtual sf::FloatRect GetGlobalBouds() const;
     virtual ~BaseTablet() = default;
 
 public:
@@ -17,5 +17,5 @@ public:
 
 protected:
     sf::RectangleShape mTablet;
-    const float tabletSpeed = 300.0f;
+    const float mTabletSpeed = 300.0f;
 };

@@ -23,11 +23,11 @@ public:
     static constexpr float ballRadius = 10.0f;
 
 private:
-    sf::CircleShape ball;
-    float ballSpeed = 400.0f;
-    sf::Vector2f direction;
-    sf::SoundBuffer borderSoundBuffer;
-    sf::SoundBuffer tabletSoundBuffer;
-    sf::Sound borderSound;
-    sf::Sound tabletSound;
+    sf::CircleShape mBall;
+    float mBallSpeed = 400.0f;
+    sf::Vector2f mDirection;
+    sf::SoundBuffer mBorderSoundBuffer;
+    sf::SoundBuffer mTabletSoundBuffer;
+    sf::Sound mBorderSound;
+    sf::Sound mTabletSound;
 };

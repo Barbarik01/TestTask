@@ -7,7 +7,7 @@ BaseTablet::BaseTablet(const sf::Vector2f& position)
     mTablet.setFillColor(sf::Color::White);
 }
 
-sf::FloatRect BaseTablet::getGlobalBouds() const
+sf::FloatRect BaseTablet::GetGlobalBouds() const
 {
     return mTablet.getGlobalBounds();
 }

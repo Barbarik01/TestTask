@@ -10,6 +10,6 @@ public:
     virtual void Update(float dt) override;
 
 private:
-    const float tabletSpeed = 200.0f;
-    const Ball& ball;
+    const float mTabletSpeed = 200.0f;
+    const Ball& mBall;
 };
