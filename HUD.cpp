@@ -28,10 +28,8 @@ void HUD::InitText(sf::Text& text, const sf::Vector2f& position)
     text.setString("0");
 }
 
-
 void HUD::Update()
 {
-    
 }
 
 void HUD::SetRightScore(int score)

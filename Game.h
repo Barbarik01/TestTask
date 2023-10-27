@@ -1,24 +1,23 @@
 #pragma once
+#include "Ball.h"
+#include "BaseTablet.h"
+#include "HUD.h"
 #include "Window.h"
 #include <SFML/Audio.hpp>
-#include "HUD.h"
-#include "BaseTablet.h"
-#include "Ball.h"
 
 class Game
 {
-public:
-
+  public:
     Game(Window& wnd);
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
     void Run();
 
-private:
+  private:
     void Update();
     void Render();
 
-private:
+  private:
     Window& mWindow;
     sf::Clock clock;
     HUD mHud;

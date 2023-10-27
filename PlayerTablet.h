@@ -3,7 +3,7 @@
 
 class PlayerTablet : public BaseTablet
 {
-public:
+  public:
     PlayerTablet() = default;
     PlayerTablet(sf::Vector2f& position);
     virtual void Update(float dt) override;

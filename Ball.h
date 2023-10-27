@@ -1,11 +1,11 @@
 #pragma once
+#include "BaseTablet.h"
 #include "Window.h"
 #include <SFML/Audio.hpp>
-#include "BaseTablet.h"
 
 class Ball
 {
-public:
+  public:
     Ball() = default;
     Ball(const sf::Vector2f& position);
     bool CheckCollisionWithTables(const BaseTablet* pBaseTablet) const;
@@ -16,13 +16,13 @@ public:
     void SetRandomDirection();
     void CollisionWithTables();
 
-private:
+  private:
     void SetPosition(const sf::Vector2f& position);
 
-public:
+  public:
     static constexpr float ballRadius = 10.0f;
 
-private:
+  private:
     sf::CircleShape mBall;
     float mBallSpeed = 400.0f;
     sf::Vector2f mDirection;

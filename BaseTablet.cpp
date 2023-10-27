@@ -12,7 +12,6 @@ sf::FloatRect BaseTablet::GetGlobalBouds() const
     return mTablet.getGlobalBounds();
 }
 
-
 bool BaseTablet::CheckCollision() const
 {
     return false;

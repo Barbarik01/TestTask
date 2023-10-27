@@ -1,8 +1,9 @@
 #pragma once
 #include "Window.h"
 
-class BaseTablet {
-public:
+class BaseTablet
+{
+  public:
     BaseTablet() = default;
     BaseTablet(const sf::Vector2f& position);
     virtual bool CheckCollision() const;
@@ -11,11 +12,11 @@ public:
     virtual sf::FloatRect GetGlobalBouds() const;
     virtual ~BaseTablet() = default;
 
-public:
+  public:
     static constexpr float tabletWidth = 10.0f;
     static constexpr float tabletHeight = 100.0f;
 
-protected:
+  protected:
     sf::RectangleShape mTablet;
     const float mTabletSpeed = 300.0f;
 };

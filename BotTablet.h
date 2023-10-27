@@ -1,15 +1,15 @@
 #pragma once
-#include "BaseTablet.h"
 #include "Ball.h"
+#include "BaseTablet.h"
 
 class BotTablet : public BaseTablet
 {
-public:
+  public:
     BotTablet() = default;
     BotTablet(sf::Vector2f& position, const Ball& ball);
     virtual void Update(float dt) override;
 
-private:
+  private:
     const float mTabletSpeed = 200.0f;
     const Ball& mBall;
 };

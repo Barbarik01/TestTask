@@ -1,5 +1,5 @@
-#include "Window.h"
 #include "Game.h"
+#include "Window.h"
 
 int main()
 {

@@ -3,16 +3,16 @@
 
 class Window
 {
-public:
+  public:
     Window();
     Window(const Window&) = delete;
     Window& operator=(const Window&) = delete;
     bool ProcessWindow();
 
-public:
+  public:
     std::unique_ptr<sf::RenderWindow> pWnd = nullptr;
 
-public:
+  public:
     static constexpr int ScreenWidth = 1280;
     static constexpr int ScreenHeight = 720;
     static constexpr const char* wndName = "Pong Game";

@@ -4,8 +4,7 @@
 
 Game::Game(Window& wnd)
     : mWindow(wnd)
-    , mLeftScore(0)
-    , mRightScore(0)
+    , mLeftScore(0), mRightScore(0)
     , ball(sf::Vector2f(Window::ScreenWidth / 2, Window::ScreenHeight / 2))
 {
     int positionPlayerX = 10;
@@ -50,7 +49,7 @@ void Game::Update()
     {
         ball.SetNewPosition();
         mHud.SetRightScore(++mRightScore);
- 
+
         mGoalSound.play();
     }
 

@@ -58,12 +58,12 @@ void Ball::SetRandomDirection()
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(-1, 1);
     std::uniform_int_distribution<> disInt(-1, 1);
-    
+
     do
     {
         mDirection.x = disInt(gen);
     } while (mDirection.x == 0);
-    
+
     mDirection.y = dis(gen);
 }
 
