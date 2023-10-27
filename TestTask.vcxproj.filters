@@ -71,4 +71,8 @@
     <Media Include="sounds\goal.mp3" />
     <Media Include="sounds\BorderSound.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
+    <None Include="README.md" />
+  </ItemGroup>
 </Project>
