@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include <SFML/Audio.hpp>
 #include "BaseTablet.h"
 
 class Ball
@@ -25,4 +26,8 @@ private:
     sf::CircleShape ball;
     float ballSpeed = 400.0f;
     sf::Vector2f direction;
+    sf::SoundBuffer borderSoundBuffer;
+    sf::SoundBuffer tabletSoundBuffer;
+    sf::Sound borderSound;
+    sf::Sound tabletSound;
 };

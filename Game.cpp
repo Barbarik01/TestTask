@@ -18,6 +18,9 @@ Game::Game(Window& wnd)
 
     mTablets.push_back(std::make_unique<PlayerTablet>(playerPosition));
     mTablets.push_back(std::make_unique<BotTablet>(botPosition, ball));
+
+    goalSoundBuffer.loadFromFile("Sounds\\goal.mp3");
+    goalSound.setBuffer(goalSoundBuffer);
 }
 
 void Game::Run()
@@ -39,12 +42,16 @@ void Game::Update()
     {
         ball.SetNewPosition();
         mHud.SetLeftScore(++mLeftScore);
+
+        goalSound.play();
     }
 
     if (ball.GetPosition().x > Window::ScreenWidth)
     {
         ball.SetNewPosition();
         mHud.SetRightScore(++mRightScore);
+ 
+        goalSound.play();
     }
 
     for (const auto& elem : mTablets)

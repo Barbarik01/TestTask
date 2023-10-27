@@ -62,5 +62,16 @@
     <ClInclude Include="Ball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\TabletSound.mp3" />
+    <Media Include="sounds\goal.mp3" />
+    <Media Include="sounds\BorderSound.mp3" />
   </ItemGroup>
 </Project>

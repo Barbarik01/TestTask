@@ -1,5 +1,6 @@
 #pragma once
 #include "Window.h"
+#include <SFML/Audio.hpp>
 #include "HUD.h"
 #include "BaseTablet.h"
 #include "Ball.h"
@@ -25,4 +26,6 @@ private:
     Ball ball;
     int mLeftScore;
     int mRightScore;
+    sf::SoundBuffer goalSoundBuffer;
+    sf::Sound goalSound;
 };
