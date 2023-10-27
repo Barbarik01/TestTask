@@ -12,25 +12,25 @@ D:\Git\TestTask\Ball.cpp(67,23): warning C4244: '=': conversion from 'double' to
   BaseTablet.cpp
   BotTablet.cpp
   Game.cpp
-D:\Git\TestTask\Game.cpp(12,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Git\TestTask\Game.cpp(13,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(11,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Git\TestTask\Game.cpp(12,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Git\TestTask\Game.cpp(13,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(12,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+D:\Git\TestTask\Game.cpp(14,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Git\TestTask\Game.cpp(15,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Git\TestTask\Game.cpp(16,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Git\TestTask\Game.cpp(17,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(16,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Git\TestTask\Game.cpp(17,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(16,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
@@ -38,6 +38,7 @@ D:\Git\TestTask\Game.cpp(17,30): warning C4244: 'argument': conversion from 'int
   HUD.cpp
 D:\Git\TestTask\HUD.cpp(11,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   PlayerTablet.cpp
+  Window.cpp
   main.cpp
   Generating Code...
   TestTask.vcxproj -> D:\Git\TestTask\x64\Debug\TestTask.exe
