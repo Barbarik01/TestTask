@@ -1,1 +1,2 @@
 D:\Нова папка\TestTask\x64\Debug\TestTask.exe
+D:\Git\TestTask\x64\Debug\TestTask.exe
