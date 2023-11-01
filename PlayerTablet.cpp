@@ -1,6 +1,7 @@
 #include "PlayerTablet.h"
 
-PlayerTablet::PlayerTablet(sf::Vector2f& position) : BaseTablet(position)
+PlayerTablet::PlayerTablet(sf::Vector2f& position, std::shared_ptr<Ball> ball, float speed, float width, float height)
+    : BaseTablet(position, ball, speed, width, height)
 {
 }
 
@@ -11,8 +12,10 @@ void PlayerTablet::Update(float dt)
         mTablet.move(0, -mTabletSpeed * dt);
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && mTablet.getPosition().y + tabletHeight < Window::ScreenHeight)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && mTablet.getPosition().y + mHeight < Window::ScreenHeight)
     {
         mTablet.move(0, mTabletSpeed * dt);
     }
+
+    InteractWithBall();
 }

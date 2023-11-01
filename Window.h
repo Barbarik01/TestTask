@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class Window
 {
@@ -8,8 +8,15 @@ class Window
     Window(const Window&) = delete;
     Window& operator=(const Window&) = delete;
     bool ProcessWindow();
+    void ClearFrame();
+    void DisplayFrame();
 
-  public:
+    template <typename T> void Render(const T& object)
+    {
+        pWnd->draw(object);
+    }
+
+  private:
     std::unique_ptr<sf::RenderWindow> pWnd = nullptr;
 
   public:

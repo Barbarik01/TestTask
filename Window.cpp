@@ -22,3 +22,13 @@ bool Window::ProcessWindow()
     else
         return false;
 }
+
+void Window::ClearFrame()
+{
+    pWnd->clear();
+}
+
+void Window::DisplayFrame()
+{
+    pWnd->display();
+}

@@ -1,7 +1,6 @@
 #include "HUD.h"
-#include <sstream>
 
-HUD::HUD()
+HUD::HUD(std::shared_ptr<Ball> ball) : mBall(ball)
 {
     for (int i = 10; i < Window::ScreenHeight; i += 30)
     {
@@ -15,9 +14,12 @@ HUD::HUD()
     }
 
     mFont.loadFromFile("arial.ttf");
+    
+    InitText(mLeftScoreText, sf::Vector2f(Window::ScreenWidth / 2 - 100, 50));
+    InitText(mRightScoreText, sf::Vector2f(Window::ScreenWidth / 2 + 100, 50));
 
-    InitText(mLeftScore, sf::Vector2f(Window::ScreenWidth / 2 - 100, 50));
-    InitText(mRightScore, sf::Vector2f(Window::ScreenWidth / 2 + 100, 50));
+    if(mGoalSoundBuffer.loadFromFile("Sounds\\goal.mp3"))
+        mGoalSound.setBuffer(mGoalSoundBuffer);
 }
 
 void HUD::InitText(sf::Text& text, const sf::Vector2f& position)
@@ -28,29 +30,44 @@ void HUD::InitText(sf::Text& text, const sf::Vector2f& position)
     text.setString("0");
 }
 
-void HUD::Update()
+void HUD::Update(float dt)
 {
+    if (mBall->GetPosition().x < 0)
+    {
+        mBall->SetNewPosition();
+        mBall->SetSpeed(400.0f);
+        SetLeftScore(++mLeftScore);
+        
+        if(mGoalSound.getBuffer())
+            mGoalSound.play();
+    }
+
+    if (mBall->GetPosition().x > Window::ScreenWidth)
+    {
+        mBall->SetNewPosition();
+        mBall->SetSpeed(400.0f);
+        SetRightScore(++mRightScore);
+
+        if(mGoalSound.getBuffer())
+            mGoalSound.play();
+    }
 }
 
 void HUD::SetRightScore(int score)
 {
-    std::stringstream ss;
-    ss << score;
-    mRightScore.setString(ss.str());
+    mRightScoreText.setString(std::to_string(score));
 }
 
 void HUD::SetLeftScore(int score)
 {
-    std::stringstream ss;
-    ss << score;
-    mLeftScore.setString(ss.str());
+    mLeftScoreText.setString(std::to_string(score));
 }
 
 void HUD::Render(Window& wnd)
 {
     for (const auto& elem : mDashedLine)
-        wnd.pWnd->draw(elem);
+        wnd.Render(elem);
 
-    wnd.pWnd->draw(mLeftScore);
-    wnd.pWnd->draw(mRightScore);
+    wnd.Render(mLeftScoreText);
+    wnd.Render(mRightScoreText);
 }

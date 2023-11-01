@@ -6,10 +6,7 @@ class BotTablet : public BaseTablet
 {
   public:
     BotTablet() = default;
-    BotTablet(sf::Vector2f& position, const Ball& ball);
+    BotTablet(const sf::Vector2f& position, std::shared_ptr<Ball> ball, float speed, float width = 10.0f,
+              float height = 100.f);
     virtual void Update(float dt) override;
-
-  private:
-    const float mTabletSpeed = 200.0f;
-    const Ball& mBall;
 };

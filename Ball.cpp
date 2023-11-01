@@ -1,18 +1,20 @@
 #include "Ball.h"
-#include <random>
 
-Ball::Ball(const sf::Vector2f& position)
+Ball::Ball(const sf::Vector2f& position) 
+    : mGen(mRd())
+    , mDis(-1, 1)
 {
-    mBall.setRadius(ballRadius);
+    mBall.setRadius(mBallRadius);
     mBall.setPosition(position);
     mBall.setFillColor(sf::Color::White);
 
     SetRandomDirection();
 
-    mBorderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3");
-    mTabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3");
-    mBorderSound.setBuffer(mBorderSoundBuffer);
-    mTabletSound.setBuffer(mTabletSoundBuffer);
+    if(mBorderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3"))
+        mBorderSound.setBuffer(mBorderSoundBuffer);
+
+    if(mTabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3"))
+        mTabletSound.setBuffer(mTabletSoundBuffer);
 }
 
 void Ball::SetPosition(const sf::Vector2f& position)
@@ -20,31 +22,47 @@ void Ball::SetPosition(const sf::Vector2f& position)
     mBall.setPosition(position);
 }
 
-bool Ball::CheckCollisionWithTables(const BaseTablet* pBaseTablet) const
+bool Ball::CheckCollisionWithTables(const BaseTablet& pBaseTablet) const
 {
-    return mBall.getGlobalBounds().intersects(pBaseTablet->GetGlobalBouds());
+    return mBall.getGlobalBounds().intersects(pBaseTablet.GetGlobalBouds());
 }
 
 void Ball::CollisionWithTables()
 {
     mDirection.x = -mDirection.x;
-    mTabletSound.play();
+
+    if (mTabletSound.getBuffer())
+        mTabletSound.play();
+    
+    mBallSpeed += 50;
+}
+
+void Ball::SetSpeed(float a) noexcept
+{
+    mBallSpeed = a;
+}
+
+float Ball::GetRadius() const noexcept
+{
+    return mBallRadius;
 }
 
 void Ball::Update(float dt)
 {
     mBall.move(mDirection.x * mBallSpeed * dt, mDirection.y * mBallSpeed * dt);
 
-    if (mBall.getPosition().y < 0 || mBall.getPosition().y + ballRadius * 2 > Window::ScreenHeight)
+    if (mBall.getPosition().y < 0 || mBall.getPosition().y + mBallRadius * 2 > Window::ScreenHeight)
     {
         mDirection.y = -mDirection.y;
-        mBorderSound.play();
+
+        if (mBorderSound.getBuffer())
+            mBorderSound.play();
     }
 }
 
 void Ball::Render(Window& window)
 {
-    window.pWnd->draw(mBall);
+    window.Render(mBall);
 }
 
 const sf::Vector2f& Ball::GetPosition() const
@@ -54,17 +72,12 @@ const sf::Vector2f& Ball::GetPosition() const
 
 void Ball::SetRandomDirection()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> dis(-1, 1);
-    std::uniform_int_distribution<> disInt(-1, 1);
-
     do
     {
-        mDirection.x = disInt(gen);
-    } while (mDirection.x == 0);
+        mDirection.x = mDis(mGen);
+    } while (mDirection.x > -0.6 && mDirection.x < 0.6);
 
-    mDirection.y = dis(gen);
+    mDirection.y = mDis(mGen);
 }
 
 void Ball::SetNewPosition()

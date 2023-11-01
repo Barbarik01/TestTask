@@ -5,26 +5,18 @@
 #include "Window.h"
 #include <SFML/Audio.hpp>
 
-class Game
+class Game : public BaseClass
 {
   public:
-    Game(Window& wnd);
+    Game();
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
-    void Run();
+    void Run(float dt, Window& wnd);
 
   private:
-    void Update();
-    void Render();
+    virtual void Update(float dt) override;
+    virtual void Render(Window& wnd) override;
 
   private:
-    Window& mWindow;
-    sf::Clock clock;
-    HUD mHud;
-    std::vector<std::unique_ptr<BaseTablet>> mTablets;
-    Ball ball;
-    int mLeftScore;
-    int mRightScore;
-    sf::SoundBuffer mGoalSoundBuffer;
-    sf::Sound mGoalSound;
+    std::vector<std::shared_ptr<BaseClass>> mObjects;
 };

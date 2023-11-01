@@ -1,22 +1,28 @@
 #pragma once
-#include "Window.h"
+#include "Ball.h"
+#include "BaseClass.h"
 
-class BaseTablet
+class Ball;
+
+class BaseTablet : public BaseClass
 {
   public:
     BaseTablet() = default;
-    BaseTablet(const sf::Vector2f& position);
-    virtual bool CheckCollision() const;
+    BaseTablet(const sf::Vector2f& position, std::shared_ptr<Ball> ball, float speed, float width, float height);
     virtual void Update(float dt) = 0;
-    virtual void Render(Window& window);
+    virtual void Render(Window& window) override;
     virtual sf::FloatRect GetGlobalBouds() const;
+    virtual bool InteractWithBall();
+    virtual float GetWidth() const noexcept;
+    virtual float GetHeight() const noexcept;
+    virtual void SetSize(const sf::Vector2f& size);
+    virtual void SetPositon(const sf::Vector2f& position);
     virtual ~BaseTablet() = default;
 
-  public:
-    static constexpr float tabletWidth = 10.0f;
-    static constexpr float tabletHeight = 100.0f;
-
   protected:
+    std::shared_ptr<Ball> mBall = nullptr;
     sf::RectangleShape mTablet;
-    const float mTabletSpeed = 300.0f;
+    float mTabletSpeed = 300.0f;
+    float mWidth;
+    float mHeight;
 };

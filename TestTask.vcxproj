@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="BaseClass.h" />
     <ClInclude Include="BaseTablet.h" />
     <ClInclude Include="BotTablet.h" />
     <ClInclude Include="Game.h" />
