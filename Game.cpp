@@ -1,6 +1,8 @@
 #include "Game.h"
-#include "BotTablet.h"
-#include "PlayerTablet.h"
+#include "BotRacket.h"
+#include "GameLogic.h"
+#include "PlayerRacket.h"
+#include "FactoryRacket.h"
 
 Game::Game()
 {
@@ -12,10 +14,15 @@ Game::Game()
     int positionBotY = Window::ScreenHeight / 2;
     sf::Vector2f botPosition(positionBotX, positionBotY);
 
-    mObjects.push_back(std::make_shared<Ball>(sf::Vector2f(Window::ScreenWidth / 2, Window::ScreenHeight / 2)));
-    mObjects.push_back(std::make_shared<PlayerTablet>(playerPosition, std::static_pointer_cast<Ball>(mObjects[0]), 300.0f));
-    mObjects.push_back(std::make_shared<BotTablet>(botPosition, std::static_pointer_cast<Ball>(mObjects[0]), 250.0f));
-    mObjects.push_back(std::make_shared<HUD>(std::static_pointer_cast<Ball>(mObjects[0])));
+    std::shared_ptr<HUD> hud = std::make_shared<HUD>();
+    std::shared_ptr<Ball> ball =
+        std::make_shared<Ball>(sf::Vector2f(Window::ScreenWidth / 2, Window::ScreenHeight / 2));
+
+    mObjects.push_back(std::make_shared<GameLogic>(ball, hud));
+    mObjects.push_back(ball);
+    mObjects.push_back(hud);
+    mObjects.push_back(FactoryRacket::Create(TypeRacketControl::PLAYER, playerPosition, ball));
+    mObjects.push_back(FactoryRacket::Create(TypeRacketControl::AI, botPosition, ball));
 }
 
 void Game::Run(float dt, Window& wnd)

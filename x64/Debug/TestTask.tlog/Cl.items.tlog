@@ -1,8 +1,11 @@
-D:\Нова папка (2)\TestTask\Ball.cpp;D:\Нова папка (2)\TestTask\x64\Debug\Ball.obj
-D:\Нова папка (2)\TestTask\BaseTablet.cpp;D:\Нова папка (2)\TestTask\x64\Debug\BaseTablet.obj
-D:\Нова папка (2)\TestTask\BotTablet.cpp;D:\Нова папка (2)\TestTask\x64\Debug\BotTablet.obj
-D:\Нова папка (2)\TestTask\Game.cpp;D:\Нова папка (2)\TestTask\x64\Debug\Game.obj
-D:\Нова папка (2)\TestTask\HUD.cpp;D:\Нова папка (2)\TestTask\x64\Debug\HUD.obj
-D:\Нова папка (2)\TestTask\main.cpp;D:\Нова папка (2)\TestTask\x64\Debug\main.obj
-D:\Нова папка (2)\TestTask\PlayerTablet.cpp;D:\Нова папка (2)\TestTask\x64\Debug\PlayerTablet.obj
-D:\Нова папка (2)\TestTask\Window.cpp;D:\Нова папка (2)\TestTask\x64\Debug\Window.obj
+D:\Git\TestTask\Ball.cpp;D:\Git\TestTask\x64\Debug\Ball.obj
+D:\Git\TestTask\FactoryRacket.cpp;D:\Git\TestTask\x64\Debug\FactoryRacket.obj
+D:\Git\TestTask\MathUtils.cpp;D:\Git\TestTask\x64\Debug\MathUtils.obj
+D:\Git\TestTask\PlayerRacket.cpp;D:\Git\TestTask\x64\Debug\PlayerRacket.obj
+D:\Git\TestTask\BaseRacket.cpp;D:\Git\TestTask\x64\Debug\BaseRacket.obj
+D:\Git\TestTask\BotRacket.cpp;D:\Git\TestTask\x64\Debug\BotRacket.obj
+D:\Git\TestTask\Game.cpp;D:\Git\TestTask\x64\Debug\Game.obj
+D:\Git\TestTask\GameLogic.cpp;D:\Git\TestTask\x64\Debug\GameLogic.obj
+D:\Git\TestTask\HUD.cpp;D:\Git\TestTask\x64\Debug\HUD.obj
+D:\Git\TestTask\main.cpp;D:\Git\TestTask\x64\Debug\main.obj
+D:\Git\TestTask\Window.cpp;D:\Git\TestTask\x64\Debug\Window.obj

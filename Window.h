@@ -10,11 +10,7 @@ class Window
     bool ProcessWindow();
     void ClearFrame();
     void DisplayFrame();
-
-    template <typename T> void Render(const T& object)
-    {
-        pWnd->draw(object);
-    }
+    sf::RenderWindow* GetWindow() const;
 
   private:
     std::unique_ptr<sf::RenderWindow> pWnd = nullptr;

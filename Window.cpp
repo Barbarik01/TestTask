@@ -7,20 +7,22 @@ Window::Window()
 
 bool Window::ProcessWindow()
 {
-    if (pWnd->isOpen())
+    if (!pWnd->isOpen())
     {
-        sf::Event event;
-
-        while (pWnd->pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                pWnd->close();
-        }
-
-        return true;
-    }
-    else
         return false;
+    }
+
+    sf::Event event;
+
+    while (pWnd->pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed)
+        {
+            pWnd->close();
+        }
+    }
+
+    return true;
 }
 
 void Window::ClearFrame()
@@ -31,4 +33,9 @@ void Window::ClearFrame()
 void Window::DisplayFrame()
 {
     pWnd->display();
+}
+
+sf::RenderWindow* Window::GetWindow() const
+{
+    return pWnd.get();
 }
