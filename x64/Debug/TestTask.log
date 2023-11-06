@@ -1,31 +1,28 @@
 ﻿  Ball.cpp
-  BaseTablet.cpp
-  BotTablet.cpp
+  BaseRacket.cpp
+  BotRacket.cpp
+  FactoryRacket.cpp
   Game.cpp
-D:\Нова папка (2)\TestTask\Game.cpp(9,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(11,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Нова папка (2)\TestTask\Game.cpp(9,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(11,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Нова папка (2)\TestTask\Game.cpp(13,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(15,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\Нова папка (2)\TestTask\Game.cpp(13,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Git\TestTask\Game.cpp(15,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  HUD.cpp
-D:\Нова папка (2)\TestTask\HUD.cpp(10,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  main.cpp
-  PlayerTablet.cpp
-  Window.cpp
+  PlayerRacket.cpp
   Generating Code...
-  TestTask.vcxproj -> D:\Нова папка (2)\TestTask\x64\Debug\TestTask.exe
+  TestTask.vcxproj -> D:\Git\TestTask\x64\Debug\TestTask.exe
