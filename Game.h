@@ -1,11 +1,9 @@
 #pragma once
-#include "Ball.h"
-#include "BaseTablet.h"
-#include "HUD.h"
 #include "Window.h"
+#include "IRenderable.h"
 #include <SFML/Audio.hpp>
 
-class Game : public BaseClass
+class Game
 {
   public:
     Game();
@@ -14,9 +12,9 @@ class Game : public BaseClass
     void Run(float dt, Window& wnd);
 
   private:
-    virtual void Update(float dt) override;
-    virtual void Render(Window& wnd) override;
+    void Update(float dt);
+    void Render(Window& wnd);
 
   private:
-    std::vector<std::shared_ptr<BaseClass>> mObjects;
+    std::vector<std::shared_ptr<IRenderable>> mObjects;
 };

@@ -1,25 +1,24 @@
 #pragma once
-#include "BaseClass.h"
-#include "BaseTablet.h"
+#include "IRenderable.h"
 #include <SFML/Audio.hpp>
 #include <random>
 
-class BaseTablet;
-
-class Ball : public BaseClass
+class Ball : public IRenderable
 {
   public:
     Ball() = default;
     Ball(const sf::Vector2f& position);
-    bool CheckCollisionWithTables(const BaseTablet& pBaseTablet) const;
     virtual void Update(float dt) override;
-    virtual void Render(Window& window) override;
+    virtual void Render(Window& wnd) override;
     const sf::Vector2f& GetPosition() const;
-    void SetNewPosition();
+    void SetDefPositionAndDirection();
     void SetRandomDirection();
     void CollisionWithTables();
     void SetSpeed(float a) noexcept;
     float GetRadius() const noexcept;
+    const sf::Vector2f& GetDirection() const;
+    void SetDirection(const sf::Vector2f& direction);
+    const sf::CircleShape& GetBall() const;
 
   private:
     void SetPosition(const sf::Vector2f& position);

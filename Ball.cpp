@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include "MathUtils.h"
 
 Ball::Ball(const sf::Vector2f& position) 
     : mGen(mRd())
@@ -10,10 +11,10 @@ Ball::Ball(const sf::Vector2f& position)
 
     SetRandomDirection();
 
-    if(mBorderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3"))
+    if (mBorderSoundBuffer.loadFromFile("Sounds\\BorderSound.mp3"))
         mBorderSound.setBuffer(mBorderSoundBuffer);
 
-    if(mTabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3"))
+    if (mTabletSoundBuffer.loadFromFile("Sounds\\TabletSound.mp3"))
         mTabletSound.setBuffer(mTabletSoundBuffer);
 }
 
@@ -22,18 +23,15 @@ void Ball::SetPosition(const sf::Vector2f& position)
     mBall.setPosition(position);
 }
 
-bool Ball::CheckCollisionWithTables(const BaseTablet& pBaseTablet) const
-{
-    return mBall.getGlobalBounds().intersects(pBaseTablet.GetGlobalBouds());
-}
-
 void Ball::CollisionWithTables()
 {
     mDirection.x = -mDirection.x;
 
+    MathUtils::NormalizeVector(mDirection);
+
     if (mTabletSound.getBuffer())
         mTabletSound.play();
-    
+
     mBallSpeed += 50;
 }
 
@@ -45,6 +43,21 @@ void Ball::SetSpeed(float a) noexcept
 float Ball::GetRadius() const noexcept
 {
     return mBallRadius;
+}
+
+void Ball::SetDirection(const sf::Vector2f& direction)
+{
+    mDirection = direction;
+}
+
+const sf::Vector2f& Ball::GetDirection() const
+{
+    return mDirection;
+}
+
+const sf::CircleShape& Ball::GetBall() const
+{
+    return mBall;
 }
 
 void Ball::Update(float dt)
@@ -60,9 +73,9 @@ void Ball::Update(float dt)
     }
 }
 
-void Ball::Render(Window& window)
+void Ball::Render(Window& wnd)
 {
-    window.Render(mBall);
+    wnd.GetWindow()->draw(mBall);
 }
 
 const sf::Vector2f& Ball::GetPosition() const
@@ -78,9 +91,11 @@ void Ball::SetRandomDirection()
     } while (mDirection.x > -0.6 && mDirection.x < 0.6);
 
     mDirection.y = mDis(mGen);
+
+    MathUtils::NormalizeVector(mDirection);
 }
 
-void Ball::SetNewPosition()
+void Ball::SetDefPositionAndDirection()
 {
     mBall.setPosition(Window::ScreenWidth / 2, Window::ScreenHeight / 2);
 

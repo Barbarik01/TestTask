@@ -152,22 +152,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
-    <ClCompile Include="BaseTablet.cpp" />
-    <ClCompile Include="BotTablet.cpp" />
+    <ClCompile Include="FactoryRacket.cpp" />
+    <ClCompile Include="MathUtils.cpp" />
+    <ClCompile Include="PlayerRacket.cpp" />
+    <ClCompile Include="BaseRacket.cpp" />
+    <ClCompile Include="BotRacket.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PlayerTablet.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="BaseClass.h" />
-    <ClInclude Include="BaseTablet.h" />
-    <ClInclude Include="BotTablet.h" />
+    <ClInclude Include="FactoryRacket.h" />
+    <ClInclude Include="GameLogic.h" />
+    <ClInclude Include="IRenderable.h" />
+    <ClInclude Include="MathUtils.h" />
+    <ClInclude Include="PlayerRacket.h" />
+    <ClInclude Include="BaseRacket.h" />
+    <ClInclude Include="BotRacket.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="PlayerTablet.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
